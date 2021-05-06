@@ -111,7 +111,7 @@ const displayFeed = (names) => {
 
       const num_cv = document.createElement("span");
       num_cv.classList.add("badge", "badge-primary", "badge-pill");
-      num_cv.innerText = 0;
+      num_cv.innerText = i.resumes.length;
 
       const delete_user = document.createElement("button");
 
