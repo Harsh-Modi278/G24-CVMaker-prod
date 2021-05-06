@@ -641,7 +641,7 @@ submitBtn.addEventListener("click", async (e) => {
         console.log(err);
         const alertDiv = document.getElementById("alert-message-warn");
         alertDiv.style.display = "block";
-        alertDiv.children[0].innerText = error;
+        alertDiv.children[0].innerText = err;
       });
   }
 });
