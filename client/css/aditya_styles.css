@@ -334,6 +334,7 @@ header {
   padding: 0.3rem 3.1rem;
   transition: all 0.3s ease-in-out 0s;
   align-self: center;
+  width: 100%;
 }
 
 .btn-edit:hover {

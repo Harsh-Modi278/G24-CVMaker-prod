@@ -71,196 +71,8 @@
         <div class="col-9 mrg">
           <h1 class="title-margin">Dashboard</h1>
         </div>
-        <div class="col-2 create align-items-center mrg">
-          <button
-            class="btn btn-create title-margin"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Create <img src="./Images/plus-outline.svg" alt="" class="crt" />
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            
-            <a
-              class="dropdown-item"
-              href="#"
-              data-toggle="modal"
-              data-target="#upload-template-modal"
-            >
-              <img
-                src="./Images/dropdown-upload.svg"
-                alt="upload-template"
-                class="dropdown-icons"
-              />
-              Upload Template
-            </a>
-          </div>
-        </div>
+        
 
-        <div class="modal fade" id="choose-template-modal">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-12">
-                      <h1 class="modal-title-custom">Choose Template</h1>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-6 align-self-center">
-                      <div class="card modal-card">
-                        <div class="card-image-section">
-                          <img
-                            src="./Images/Classic.png"
-                            alt="Classic template"
-                            class="img-fluid"
-                          />
-                        </div>
-                        <div class="modal-card-text-info">
-                          <h3 class="modal-card-title">Classic Style</h3>
-                        </div>
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-12 card-action-buttons">
-                              <button
-                                id="select-button"
-                                class="btn modal-btn-edit"
-                                data-redirect="classic-template.html"
-                              >
-                                Select
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-6 align-self-center">
-                      <div class="card modal-card">
-                        <div class="card-image-section">
-                          <img src="./Images/modern-template.webp" alt="Classic template" class="img-fluid">
-                        </div>
-                        <div class="modal-card-text-info">
-                          <h3 class="modal-card-title">Modern Style</h3>
-                        </div>
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-12 card-action-buttons">
-                              <button
-                                id="select-button1"
-                                class="btn modal-btn-edit"
-                                data-redirect="modern-template.html"
-                              >
-                                Select
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-6 align-self-center">
-                      <div class="card modal-card">
-                        <div class="card-image-section">
-                          <img src="./Images/minimalist-template.webp" alt="Classic template" class="img-fluid">
-                        </div>
-                        <div class="modal-card-text-info">
-                          <h3 class="modal-card-title">Modern Style</h3>
-                        </div>
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-12 card-action-buttons">
-                            <button
-                                id="select-button2"
-                                class="btn modal-btn-edit"
-                                data-redirect="minimalist-template.html"
-                              >
-                                Select
-                              </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal fade" id="upload-template-modal">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-12">
-                      <h1 class="modal-title-custom">Upload Template</h1>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12">
-                      <form
-                        action="/file-upload"
-                        class="dropzone drag-drop-section"
-                      >
-                        <img
-                          src="./Images/upload-template-modal-svg.svg"
-                          alt="icon"
-                          class="modal-icon-upload"
-                        />
-                        <h3 class="drap-drop-text">Drag and Drop</h3>
-                        <h3 class="drap-drop-text">your template here</h3>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12">
-                      <form>
-                        <div class="form-group upload-popup-window">
-                          <label for="upload-template" class="upload-text"
-                            >Upload from your local machine</label
-                          >
-                          <input
-                            type="file"
-                            class="form-control-file"
-                            id="upload-template"
-                          />
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
         <!-------Cards------->
 
         <div class="col-4 align-self-center">
@@ -277,10 +89,8 @@
             </div>
             <div class="container">
               <div class="row">
-                <div class="col-6 card-action-buttons">
-                  <button class="btn btn-preview" type="submit">Preview</button>
-                </div>
-                <div class="col-6 card-action-buttons">
+                
+                <div class="col-12 card-action-buttons">
                   <a
                     class="btn btn-edit"
                     data-index="0"
@@ -307,10 +117,8 @@
             </div>
             <div class="container">
               <div class="row">
-                <div class="col-6 card-action-buttons">
-                  <button class="btn btn-preview" type="submit">Preview</button>
-                </div>
-                <div class="col-6 card-action-buttons">
+                
+                <div class="col-12 card-action-buttons">
                   <a
                     class="btn btn-edit"
                     data-index="1"
@@ -337,10 +145,8 @@
             </div>
             <div class="container">
               <div class="row">
-                <div class="col-6 card-action-buttons">
-                  <button class="btn btn-preview" type="submit">Preview</button>
-                </div>
-                <div class="col-6 card-action-buttons">
+          
+                <div class="col-12 card-action-buttons">
                   <a
                     class="btn btn-edit"
                     data-index="2"
