@@ -17,7 +17,6 @@ const un = document.querySelector(".username");
 const que = document.querySelector(".que"); 
 const que_b = document.querySelector(".que button");
 const repass = document.querySelector(".repass");
-const alertDiv = document.getElementById("alert-message");
 
 let username; 
 
@@ -50,9 +49,26 @@ b.addEventListener("click", (e)=> {
 })
 .catch((error) => {
   console.error('Error:', error);
-  alertDiv.children[0].innerText = "";
-  alertDiv.style.display = "flex";
-  alertDiv.children[0].innerText = error;
+  const alertDiv = document.getElementById("alert-message");
+          alertDiv.innerHTML = "";
+          alertDiv.style.display = "flex";
+          const newDiv = document.createElement("div");
+          newDiv.style.width = "fit-content";
+
+          // alertDiv.setAttribute("justify-content","center");
+          // alertDiv.setAttribute("align-items","center");
+          const str = "alert alert-warning alert-dismissible fade show container-md";
+          str.split(" ").forEach((c)=>newDiv.classList.add(c));
+            newDiv.innerHTML = error;
+
+          const newBtn = document.createElement("button");
+          newBtn.classList.add("btn-close");
+          newBtn.setAttribute("data-bs-dismiss","alert");
+          newBtn.setAttribute("aria-label","Close");
+        
+
+          newDiv.append(newBtn);
+          alertDiv.append(newDiv);
 });
 });
 
@@ -81,10 +97,26 @@ que_b.addEventListener("click", ()=> {
 })
 .catch((error) => {
   console.error('Error:', error);
-  alertDiv.children[0].innerText = "";
-  console.log(alertDiv);
-  alertDiv.style.display = "flex";
-  alertDiv.children[0].innerText = error;
+  const alertDiv = document.getElementById("alert-message");
+          alertDiv.innerHTML = "";
+          alertDiv.style.display = "flex";
+          const newDiv = document.createElement("div");
+          newDiv.style.width = "fit-content";
+
+          // alertDiv.setAttribute("justify-content","center");
+          // alertDiv.setAttribute("align-items","center");
+          const str = "alert alert-warning alert-dismissible fade show container-md";
+          str.split(" ").forEach((c)=>newDiv.classList.add(c));
+            newDiv.innerHTML = error;
+
+          const newBtn = document.createElement("button");
+          newBtn.classList.add("btn-close");
+          newBtn.setAttribute("data-bs-dismiss","alert");
+          newBtn.setAttribute("aria-label","Close");
+        
+
+          newDiv.append(newBtn);
+          alertDiv.append(newDiv);
 });
 
 });
@@ -124,10 +156,26 @@ function fun(e) {
   })
   .catch((error) => {
     console.error('Error:', error);
-    alertDiv.children[0].innerText = "";
-    console.log(alertDiv);
-    alertDiv.style.display = "flex";
-    alertDiv.children[0].innerText = error;
+    const alertDiv = document.getElementById("alert-message");
+          alertDiv.innerHTML = "";
+          alertDiv.style.display = "flex";
+          const newDiv = document.createElement("div");
+          newDiv.style.width = "fit-content";
+
+          // alertDiv.setAttribute("justify-content","center");
+          // alertDiv.setAttribute("align-items","center");
+          const str = "alert alert-warning alert-dismissible fade show container-md";
+          str.split(" ").forEach((c)=>newDiv.classList.add(c));
+            newDiv.innerHTML = error;
+
+          const newBtn = document.createElement("button");
+          newBtn.classList.add("btn-close");
+          newBtn.setAttribute("data-bs-dismiss","alert");
+          newBtn.setAttribute("aria-label","Close");
+        
+
+          newDiv.append(newBtn);
+          alertDiv.append(newDiv);
   });
 
   }
