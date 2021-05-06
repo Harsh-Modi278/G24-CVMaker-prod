@@ -69,33 +69,80 @@
             id="userSearch"
             placeholder="Search "
           />
+          <div id="feedTable"></div>
         </div>
         <div class="col-sm-12 col-md-4">
-          <div class="Traffic">
-            <button
-              type="button"
-              class="btn-create"
-              onclick="location.href='Traffic.html'"
-            >
-              Traffic
-            </button>
+          <div class="card" style="width: 18rem; height: 450px">
+            <img
+              class="card-img-top"
+              src="./Images/traffic-website.jpg"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Traffic</h5>
+              <p class="card-text">
+                Observe Traffic attributes such as Daily users, Popularity of CV
+                templates, Total Users etc. This will enable you to get an
+                insight of website's reach.
+              </p>
+              <div class="Traffic">
+                <button
+                  type="button"
+                  class="btn-create"
+                  onclick="location.href='Traffic.html'"
+                >
+                  Traffic
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-sm">
-          <div
-            id="feedTable"
-            style="
-              width: 1152px;
-              height: 55px;
-              left: 10px;
-              top: 80px;
-              background: rgba(219, 219, 221, 0.1);
-              border-radius: 7px;
-              position: absolute;
-            "
-          ></div>
+        <div class="col-sm"></div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Delete</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this user?
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="delete-popup"
+              data-dismiss="modal"
+            >
+              Delete user
+            </button>
+          </div>
         </div>
       </div>
     </div>

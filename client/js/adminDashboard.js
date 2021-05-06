@@ -43,6 +43,7 @@ let users = [];
 //const body=document.getElementById("container");
 const characterList = document.getElementById("feedTable");
 const searchbar = document.getElementById("userSearch");
+const conf_delete = document.getElementById("delete-popup");
 const url = "/api/users";
 fetch(url, myInit)
   .then((res) => {
@@ -88,6 +89,7 @@ const displayFeed = (names) => {
     characterList.innerHTML = "";
     const table = document.createElement("table");
     table.classList.add("table");
+
     table.innerHTML = `
             <thead >
                 <tr >
@@ -114,6 +116,8 @@ const displayFeed = (names) => {
       num_cv.innerText = i.resumes.length;
 
       const delete_user = document.createElement("button");
+      delete_user.setAttribute("data-toggle", "modal");
+      delete_user.setAttribute("data-target", "#exampleModalCenter");
 
       delete_user.classList.add(
         "fas",
@@ -126,7 +130,7 @@ const displayFeed = (names) => {
         "my-sm-0"
       );
 
-      delete_user.onclick = () => {
+      conf_delete.onclick = () => {
         const deleted_user = users.indexOf(i);
         const filtered_user_deleted = names.indexOf(i);
         if (deleted_user !== -1 && filtered_user_deleted !== -1) {
