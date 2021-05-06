@@ -654,17 +654,22 @@ submitBtn.addEventListener("click", async (e) => {
       .then((jsonRes) => {
         console.log(jsonRes);
         const alertDiv = document.getElementById("alert-message");
-          alertDiv.style.display = "block";
-          alertDiv.children[0].innerText = jsonRes.data.msg;
+        alertDiv.style.display = "block";
+        alertDiv.children[0].innerText = jsonRes.data.msg;
       })
       .catch((err) => {
         console.log(err);
         const alertDiv = document.getElementById("alert-message-warn");
         alertDiv.style.display = "block";
+<<<<<<< HEAD
+        alertDiv.children[0].innerText = error;
+      });
+=======
         alertDiv.children[0].innerText = err;
       }
       );
         
+>>>>>>> 77d8e01350e0e8d0ede983c47793228a847aa522
   }
 });
 

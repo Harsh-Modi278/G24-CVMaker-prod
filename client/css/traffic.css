@@ -207,8 +207,13 @@ header {
   flex: 1;
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+nav {
+  justify-content: right;
+  align-items: right;
 }
 
 header h1 {
