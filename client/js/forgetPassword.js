@@ -48,6 +48,9 @@ b.addEventListener("click", (e)=> {
 })
 .catch((error) => {
   console.error('Error:', error);
+  const alertDiv = document.getElementById("alert-message");
+        alertDiv.style.display = "block";
+        alertDiv.children[0].innerText = error;
 });
 });
 
@@ -76,6 +79,9 @@ que_b.addEventListener("click", ()=> {
 })
 .catch((error) => {
   console.error('Error:', error);
+  const alertDiv = document.getElementById("alert-message");
+        alertDiv.style.display = "block";
+        alertDiv.children[0].innerText = error;
 });
 
 });
@@ -115,6 +121,9 @@ function fun(e) {
   })
   .catch((error) => {
     console.error('Error:', error);
+    const alertDiv = document.getElementById("alert-message");
+        alertDiv.style.display = "block";
+        alertDiv.children[0].innerText = error;
   });
 
   }
