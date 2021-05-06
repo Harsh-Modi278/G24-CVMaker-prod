@@ -666,14 +666,47 @@ submitBtn.addEventListener("click", async (e) => {
       .then((jsonRes) => {
         console.log(jsonRes);
         const alertDiv = document.getElementById("alert-message");
-        alertDiv.style.display = "block";
-        alertDiv.children[0].innerText = jsonRes.data.msg;
+          alertDiv.innerHTML = "";
+          alertDiv.style.display = "flex";
+          const newDiv = document.createElement("div");
+          newDiv.style.width = "fit-content";
+
+          // alertDiv.setAttribute("justify-content","center");
+          // alertDiv.setAttribute("align-items","center");
+          const str = "alert alert-success alert-dismissible fade show container-md";
+          str.split(" ").forEach((c)=>newDiv.classList.add(c));
+            newDiv.innerHTML = jsonRes.data.msg;
+
+          const newBtn = document.createElement("button");
+          newBtn.classList.add("btn-close");
+          newBtn.setAttribute("data-bs-dismiss","alert");
+          newBtn.setAttribute("aria-label","Close");
+        
+
+          newDiv.append(newBtn);
+          alertDiv.append(newDiv);
       })
       .catch((err) => {
         console.log(err);
-        const alertDiv = document.getElementById("alert-message-warn");
-        alertDiv.style.display = "block";
-        alertDiv.children[0].innerText = err;
+        const alertDiv1 = document.getElementById("alert-message-warn");
+        alertDiv1.innerHTML = "";
+        alertDiv1.style.display = "flex";
+        const newDiv = document.createElement("div");
+        newDiv.style.width = "fit-content";
+        // alertDiv1.setAttribute("justify-content","center");
+        // alertDiv1.setAttribute("align-items","center");
+        const str = "alert alert-danger alert-dismissible fade show container-md";
+        str.split(" ").forEach((c)=>newDiv.classList.add(c));        
+          newDiv.innerHTML = err;
+
+        const newBtn = document.createElement("button");
+        newBtn.classList.add("btn-close");
+        newBtn.setAttribute("data-bs-dismiss","alert");
+        newBtn.setAttribute("aria-label","Close");
+      
+
+        newDiv.append(newBtn);
+        alertDiv1.append(newDiv);
       });
   }
 });

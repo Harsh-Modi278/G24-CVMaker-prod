@@ -17,6 +17,8 @@ const un = document.querySelector(".username");
 const que = document.querySelector(".que"); 
 const que_b = document.querySelector(".que button");
 const repass = document.querySelector(".repass");
+const alertDiv = document.getElementById("alert-message");
+
 let username; 
 
 b.addEventListener("click", (e)=> {
@@ -48,9 +50,9 @@ b.addEventListener("click", (e)=> {
 })
 .catch((error) => {
   console.error('Error:', error);
-  const alertDiv = document.getElementById("alert-message");
-        alertDiv.style.display = "block";
-        alertDiv.children[0].innerText = error;
+  alertDiv.children[0].innerText = "";
+  alertDiv.style.display = "flex";
+  alertDiv.children[0].innerText = error;
 });
 });
 
@@ -79,9 +81,10 @@ que_b.addEventListener("click", ()=> {
 })
 .catch((error) => {
   console.error('Error:', error);
-  const alertDiv = document.getElementById("alert-message");
-        alertDiv.style.display = "block";
-        alertDiv.children[0].innerText = error;
+  alertDiv.children[0].innerText = "";
+  console.log(alertDiv);
+  alertDiv.style.display = "flex";
+  alertDiv.children[0].innerText = error;
 });
 
 });
@@ -121,9 +124,10 @@ function fun(e) {
   })
   .catch((error) => {
     console.error('Error:', error);
-    const alertDiv = document.getElementById("alert-message");
-        alertDiv.style.display = "block";
-        alertDiv.children[0].innerText = error;
+    alertDiv.children[0].innerText = "";
+    console.log(alertDiv);
+    alertDiv.style.display = "flex";
+    alertDiv.children[0].innerText = error;
   });
 
   }
