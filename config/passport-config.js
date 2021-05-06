@@ -24,7 +24,7 @@ const oauthStrategyOptions = {
   // options for google strat.
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "/api/login/auth/google/callback",
+  callbackURL: "https://g24-cvmaker-prod.herokuapp.com//api/login/auth/google/callback",
   // "/api/login/auth/google/callback",
 };
 
