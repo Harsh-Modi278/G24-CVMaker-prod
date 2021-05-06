@@ -5,6 +5,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const User = require("../models/User.js");
 const Resume = require("../models/Resume.js");
+ObjectId = require('mongodb').ObjectID;
+
 // bcrypt related
 const bcryptjs = require("bcryptjs");
 
@@ -77,11 +79,20 @@ const new_resume = async (req, res, next) => {
     created: giveCurrentDate(),
     updated: giveCurrentDate(),
   });
-  newResumeInstance.user = req.user.id;
+  // console.log("helllo:-------------------",req.user?.provider);
+  let userId = req.user.id;
+  if(req.user?.provider) {
+    const user = await User.findOne({username: req.user?.emails[0].value.slice(0, -10)});
+    // console.log("hehehheheehhe--------------------",user);
+    userId = user._id;
+  }
+  newResumeInstance.user = userId;
   // const currUser = await User.findById(req.user.id);
   // currUser.resumes[req.body.index] = newResumeInstance._id;
+  // console.log("hereeeee---------------",req.user.id);
+  // console.log(userId);
   const newData = await User.findOneAndUpdate(
-    { _id: req.user.id },
+    { _id: userId },
     {
       $push: { resumes: { index: req.body.index, id: newResumeInstance._id } },
     },
@@ -89,9 +100,9 @@ const new_resume = async (req, res, next) => {
   );
   // console.log(currUser);
 
-  console.log(newData);
-  const currUser1 = await User.findById(req.user.id);
-  console.log({ currUser1 });
+  // console.log({newData});
+  const currUser1 = await User.findById(userId);
+  // console.log({ currUser1 });
   try {
     const data = await newResumeInstance.save();
     console.log(data);
@@ -103,7 +114,7 @@ const new_resume = async (req, res, next) => {
       error: null,
     });
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     res.sendStatus(500).json();
   }
 };
@@ -124,7 +135,7 @@ const edit_resume = async (req, res, next) => {
   });
 
   try {
-    console.log(obj1);
+    // console.log(obj1);
     const updatedResumeInstance = await Resume.findByIdAndUpdate(
       resumeID,
       {
@@ -148,7 +159,7 @@ const edit_resume = async (req, res, next) => {
       { new: true }
     );
 
-    console.log(updatedResumeInstance);
+    // console.log(updatedResumeInstance);
     res.json({
       success: true,
       data: {
@@ -157,7 +168,7 @@ const edit_resume = async (req, res, next) => {
       error: null,
     });
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     res.sendStatus(500).json();
   }
 };
