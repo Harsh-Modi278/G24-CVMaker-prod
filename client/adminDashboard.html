@@ -15,7 +15,7 @@
     <link rel="icon" sizes="64x64" href="./Images/checklist.png" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>Admin Dashboard</title>
   </head>
   <body>
     <header>
@@ -59,37 +59,48 @@
       </button>
     </nav  > -->
 
-    <p class="heading">Dashboard</p>
-    <div>
-      <input
-        type="text"
-        class="search-css"
-        aria-label="Search"
-        id="userSearch"
-        placeholder="Search "
-      />
-      <div
-        id="feedTable"
-        style="
-          width: 1152px;
-          height: 55px;
-          left: 144px;
-          top: 350px;
-          background: rgba(219, 219, 221, 0.1);
-          border-radius: 7px;
-          position: absolute;
-        "
-      ></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-8">
+          <input
+            type="text"
+            class="search-css"
+            aria-label="Search"
+            id="userSearch"
+            placeholder="Search "
+          />
+        </div>
+        <div class="col-sm-12 col-md-4">
+          <div class="Traffic">
+            <button
+              type="button"
+              class="btn-create"
+              onclick="location.href='Traffic.html'"
+            >
+              Traffic
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div
+            id="feedTable"
+            style="
+              width: 1152px;
+              height: 55px;
+              left: 10px;
+              top: 80px;
+              background: rgba(219, 219, 221, 0.1);
+              border-radius: 7px;
+              position: absolute;
+            "
+          ></div>
+        </div>
+      </div>
     </div>
-    <div class="Traffic">
-      <button
-        type="button"
-        class="traffic-css btn btn-outline-primary"
-        onclick="location.href='traffic.html'"
-      >
-        Traffic
-      </button>
-    </div>
+    <div></div>
+
     <script src="./js/adminDashboard.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
