@@ -488,25 +488,28 @@ const loadResume = async function () {
       document.getElementById("address").innerHTML = "" + resumeData.address;
 
       // education
-      tablerows = document.getElementById("education-table").tBodies[0].rows;
-      let edu_tabledata = resumeData?.education || [];
-      let rowstobeupdated = edu_tabledata.length;
-      while (rowstobeupdated - tablerows.length > 0) {
-        addEducation();
+      if(resumeData?.education && resumeData?.education.length>0) {
         tablerows = document.getElementById("education-table").tBodies[0].rows;
-      } //addextra rows bcoz database has more rows then html table
-      while (tablerows.length - rowstobeupdated > 0) {
-        removeRow("education-table");
-        tablerows = document.getElementById("education-table").tBodies[0].rows;
-      } //remove rows bcoz default html has more rows then database
+        let edu_tabledata = resumeData?.education || [];
+        let rowstobeupdated = edu_tabledata.length;
+        while (rowstobeupdated - tablerows.length > 0) {
+          addEducation();
+          tablerows = document.getElementById("education-table").tBodies[0].rows;
+        } //addextra rows bcoz database has more rows then html table
+        while (tablerows.length - rowstobeupdated > 0) {
+          removeRow("education-table");
+          tablerows = document.getElementById("education-table").tBodies[0].rows;
+        } //remove rows bcoz default html has more rows then database
+  
+        console.log(tablerows);
+        console.log(edu_tabledata);
+        for (i = 0; i < rowstobeupdated; i++) {
+          //update rows
+          for (j = 0; j < 4; j++)
+            tablerows[i].cells[j].innerHTML = edu_tabledata[i][j];
+          //console.log(i);
+        }
 
-      console.log(tablerows);
-      console.log(edu_tabledata);
-      for (i = 0; i < rowstobeupdated; i++) {
-        //update rows
-        for (j = 0; j < 4; j++)
-          tablerows[i].cells[j].innerHTML = edu_tabledata[i][j];
-        //console.log(i);
       }
 
       // tablerows = document.getElementById("skills-table").tBodies[0].rows;
@@ -525,23 +528,26 @@ const loadResume = async function () {
       // }
 
       //Internships
-      tablerows = document.getElementById("internships-table").tBodies[0].rows;
-      let internships_tabledata = resumeData?.internships || [];
-      rowstobeupdated = internships_tabledata.length;
-      while (rowstobeupdated - tablerows.length > 0) {
-        addInternships();
-        tablerows = document.getElementById("internships-table").tBodies[0]
-          .rows;
-      }
-      while (tablerows.length - rowstobeupdated > 0) {
-        removeRow("internships-table");
-        tablerows = document.getElementById("internships-table").tBodies[0]
-          .rows;
-      }
-      for (i = 0; i < rowstobeupdated; i++) {
-        for (j = 0; j < 3; j++) {
-          tablerows[i].cells[j].innerHTML = internships_tabledata[i][j];
+      if(resumeData?.internships && resumeData?.internships.length>0){
+        tablerows = document.getElementById("internships-table").tBodies[0].rows;
+        let internships_tabledata = resumeData?.internships || [];
+        rowstobeupdated = internships_tabledata.length;
+        while (rowstobeupdated - tablerows.length > 0) {
+          addInternships();
+          tablerows = document.getElementById("internships-table").tBodies[0]
+            .rows;
         }
+        while (tablerows.length - rowstobeupdated > 0) {
+          removeRow("internships-table");
+          tablerows = document.getElementById("internships-table").tBodies[0]
+            .rows;
+        }
+        for (i = 0; i < rowstobeupdated; i++) {
+          for (j = 0; j < 3; j++) {
+            tablerows[i].cells[j].innerHTML = internships_tabledata[i][j];
+          }
+        }
+
       }
 
       //Projects
