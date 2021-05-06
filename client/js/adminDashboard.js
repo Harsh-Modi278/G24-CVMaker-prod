@@ -116,8 +116,8 @@ const displayFeed = (names) => {
       num_cv.innerText = i.resumes.length;
 
       const delete_user = document.createElement("button");
-      delete_user.setAttribute("data-toggle", "modal");
-      delete_user.setAttribute("data-target", "#exampleModalCenter");
+      // delete_user.setAttribute("data-toggle", "modal");
+      // delete_user.setAttribute("data-target", "#exampleModalCenter");
 
       delete_user.classList.add(
         "fas",
@@ -130,7 +130,7 @@ const displayFeed = (names) => {
         "my-sm-0"
       );
 
-      conf_delete.onclick = () => {
+      delete_user.onclick = () => {
         const deleted_user = users.indexOf(i);
         const filtered_user_deleted = names.indexOf(i);
         if (deleted_user !== -1 && filtered_user_deleted !== -1) {
