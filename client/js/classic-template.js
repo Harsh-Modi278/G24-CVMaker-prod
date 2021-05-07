@@ -713,13 +713,13 @@ submitBtn.addEventListener("click", async (e) => {
 
 loadResume(); //will get called on page load
 
-const token = localStorage.getItem("token")
+token = localStorage.getItem("token")
       ? localStorage.getItem("token")
       : "";
 
-const bearer = "BEARER " + token;
+bearer = "BEARER " + token;
 
-const myInit = {
+myInit = {
   method: "GET",
   withCredentials: true,
   credentials: "include",
