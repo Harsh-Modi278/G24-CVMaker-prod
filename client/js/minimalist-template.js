@@ -297,7 +297,7 @@ function removeRow(tableid, element = null) {
 
   if (tableid == "education-table" && lastrowindex > 2) {
     document.getElementById(tableid).deleteRow(lastrowindex - 1);
-    document.getElementById(tableid).deleteRow(lastrowindex - 2);
+    // document.getElementById(tableid).deleteRow(lastrowindex - 2);
   }
 }
 

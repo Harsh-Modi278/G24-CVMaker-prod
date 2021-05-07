@@ -45,6 +45,9 @@ fetch(url, myInit)
     if (!jsonRes.data.user.isAdmin) {
       adminBadge.style.display = "none";
     }
+    if (jsonRes.data.user.isAdmin) {
+      document.getElementById("admin-dashboard").style.display = "inline";
+    }
 
     console.log(jsonRes.data.user);
     console.log(jsonRes.data.user.photoURL);
