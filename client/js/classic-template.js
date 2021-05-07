@@ -712,3 +712,44 @@ submitBtn.addEventListener("click", async (e) => {
 });
 
 loadResume(); //will get called on page load
+
+const token = localStorage.getItem("token")
+      ? localStorage.getItem("token")
+      : "";
+
+const bearer = "BEARER " + token;
+
+const myInit = {
+  method: "GET",
+  withCredentials: true,
+  credentials: "include",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: bearer,
+    cookie: document.cookie,
+  },
+  mode: "cors",
+  cache: "default",
+};
+
+fetch("/api/profile", myInit)
+  .then((res) => {
+  console.log(res);
+  if (!res.ok) {
+    throw Error("Could not fetch data for that resource");
+  } else {
+    return res.json();
+  }
+  })
+  .then((jsonRes) => {
+  console.log({ jsonRes });
+  if (!jsonRes.success) {
+    window.location.href = "login.html";
+  } else {
+    //user is logged in
+  }
+  })
+  .catch((err) => {
+    console.log(err);
+    window.location.href = "login.html";
+  });
