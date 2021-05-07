@@ -179,7 +179,10 @@
           alertDiv.setAttribute("align-items","center");
           const str = "alert alert-danger alert-dismissible fade show container-md";
           str.split(" ").forEach((c)=>newDiv.classList.add(c));
-          error.forEach((err)=>{
+          let errors = [];
+          if(Array.isArray(error)) errors.push(...error);
+          else errors.push(error);
+          errors.forEach((err)=>{
             newDiv.innerHTML = err;
           })
 
