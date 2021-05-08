@@ -150,7 +150,6 @@
         username: e.target.elements["username"].value,
         password: e.target.elements["password"].value,
       };
-      console.log(formData);
       fetch("/api/login", {
         method: "POST", // or 'PUT',
         mode: "cors",
