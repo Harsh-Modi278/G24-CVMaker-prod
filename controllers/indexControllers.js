@@ -92,7 +92,7 @@ const login_post = (req, res, next) => {
   // check is the username is registered or not?
 
   passport.authenticate("local", { session: false }, (err, user, info) => {
-    console.log({ err, user });
+    //({ err, user });
     if (err) return res.json(err);
     if (!user) return res.sendStatus(401).json();
 
@@ -125,12 +125,12 @@ const logout_get = (req, res, next) => {
 };
 
 const profile_get = (req, res, next) => {
-  console.log("here: ", req.user);
+  //("here: ", req.user);
   User.findOne({
     username: req.user?.username || req.user?.emails[0].value.slice(0, -10),
   })
     .then((data) => {
-      console.log({ data });
+      //({ data });
       if (!data) throw new Error();
       const fallbackImageURL =
         "https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg";
@@ -146,7 +146,7 @@ const profile_get = (req, res, next) => {
         googleId: data.googleId,
         resumes: data.resumes,
       };
-      console.log({ objToSend });
+      //({ objToSend });
       res.json({
         success: true,
         data: {
@@ -156,7 +156,7 @@ const profile_get = (req, res, next) => {
       });
     })
     .catch((err) => {
-      console.log(err);
+      //(err);
       res.sendStatus(500).json();
     });
 };

@@ -22,12 +22,12 @@ const myInit = {
 const url = "/api/profile";
 fetch(url, myInit)
   .then((res) => {
-    // console.log(res);
+    // //(res);
     if (!res.ok) throw new Error("Fauled to fetch resources");
     return res.json();
   })
   .then((jsonRes) => {
-    console.log({ jsonRes });
+    //({ jsonRes });
     if (!jsonRes.success) {
       window.location.href = "login.html";
     }
@@ -49,11 +49,11 @@ fetch(url, myInit)
       document.getElementById("admin-dashboard").style.display = "inline";
     }
 
-    console.log(jsonRes.data.user);
-    console.log(jsonRes.data.user.photoURL);
+    //(jsonRes.data.user);
+    //(jsonRes.data.user.photoURL);
   })
   .catch((err) => {
-    console.log({ err });
+    //({ err });
   });
 
 const fullname = document.querySelector("#edit-fullname");
@@ -79,10 +79,10 @@ fullname.addEventListener("click", (e) => {
   } else {
     myInit.method = "POST";
     myInit.body = JSON.stringify({ full_name: profileName.value });
-    console.log(myInit.body);
+    //(myInit.body);
     fetch("/api/profile", myInit)
       .then((res) => {
-        console.log(res);
+        //(res);
         if (!res.ok) {
           profileName.value = fullnameOldValue;
           throw new Error("Could not fetch data for that resource");
@@ -91,10 +91,10 @@ fullname.addEventListener("click", (e) => {
         }
       })
       .then((jsonRes) => {
-        console.log({ jsonRes });
+        //({ jsonRes });
       });
     // .catch((err) => {
-    //   console.log(err);
+    //   //(err);
     // });
 
     fullname.innerText = "Edit";
@@ -103,7 +103,7 @@ fullname.addEventListener("click", (e) => {
 });
 
 gender.addEventListener("click", (e) => {
-  console.log(e.target.innerText);
+  //(e.target.innerText);
   if (gender.innerText == "Edit") {
     gender.innerText = "Save";
     genderFormField.readOnly = false;
@@ -115,8 +115,8 @@ gender.addEventListener("click", (e) => {
     myInit.body = JSON.stringify({ gender: genderFormField.value });
     fetch("/api/profile", myInit)
       .then((res) => {
-        console.log("here");
-        console.log(res);
+        //("here");
+        //(res);
         if (!res.ok) {
           genderFormField.value = genderOldValue;
           throw new Error("Could not fetch data for that resource");
@@ -125,10 +125,10 @@ gender.addEventListener("click", (e) => {
         }
       })
       .then((jsonRes) => {
-        console.log({ jsonRes });
+        //({ jsonRes });
       });
     // .catch((err) => {
-    //   console.log(err);
+    //   //(err);
     // });
 
     gender.innerText = "Edit";
@@ -149,7 +149,7 @@ logoutButton.addEventListener("click", (e) => {
       }
     })
     .then((jsonRes) => {
-      console.log({ jsonRes });
+      //({ jsonRes });
       localStorage.removeItem("token");
       window.location.href = "index.html";
     })
@@ -168,7 +168,7 @@ deleteButton.addEventListener("click", (e) => {
       }
     })
     .then((jsonRes) => {
-      console.log({ jsonRes });
+      //({ jsonRes });
       localStorage.removeItem("token");
       window.location.href = "index.html";
     })

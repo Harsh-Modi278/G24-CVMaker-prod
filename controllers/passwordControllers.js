@@ -12,7 +12,7 @@ const username_post = (req, res, next) => {
   const { username } = req.body;
   User.findOne({ username })
     .then((result) => {
-      console.log({ result });
+      //({ result });
       if (!result) {
         res.json({
           sucess: false,
@@ -32,7 +32,7 @@ const username_post = (req, res, next) => {
       }
     })
     .catch((err) => {
-      console.log(err);
+      //(err);
       res.sendStatus(500), json();
     });
 };
@@ -72,7 +72,7 @@ const securityCheck_post = (req, res, next) => {
       }
     })
     .catch((err) => {
-      console.log(err);
+      //(err);
       res.sendStatus(500), json();
     });
 };
@@ -95,7 +95,7 @@ const password_post = (req, res, next) => {
   bcryptjs.genSalt(10, (err, salt) => {
     bcryptjs.hash(password, salt, (err1, hash) => {
       if (err1) {
-        console.log(err1);
+        //(err1);
         res.sendStatus(500), json();
       } else {
         hashedPassword = hash;
@@ -123,7 +123,7 @@ const password_post = (req, res, next) => {
             }
           })
           .catch((err) => {
-            console.log(err);
+            //(err);
             res.sendStatus(500), json();
           });
       }

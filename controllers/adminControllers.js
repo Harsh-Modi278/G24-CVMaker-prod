@@ -26,11 +26,11 @@ const get_users = (req, res, next) => {
           return res.json(allUsers);
         })
         .catch((err) => {
-          console.log(err);
+          //(err);
         });
     })
     .catch((err1) => {
-      console.log(err1);
+      //(err1);
     });
   // res.json(req.user);
 };
@@ -50,11 +50,11 @@ const delete_user = (req, res, next) => {
           res.json(deleted);
         })
         .catch((err) => {
-          console.log(err);
+          //(err);
         });
     })
     .catch((err1) => {
-      console.log(err1);
+      //(err1);
     });
 };
 

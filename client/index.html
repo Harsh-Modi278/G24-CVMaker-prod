@@ -335,12 +335,12 @@
         return res.json();
     })
     .then((jsonRes)=>{
-        // console.log({jsonRes});
+        // //({jsonRes});
         if(!jsonRes.success) 
         {
             return;
         }
-        console.log({jsonRes});
+        //({jsonRes});
         isUserLoggedIn = true;
         logoutButton.style.display = "inline";
         document.getElementById("dashboard").style.display = "inline";
@@ -368,7 +368,7 @@
             }
         })
         .then((jsonRes)=>{
-            console.log({jsonRes});
+            //({jsonRes});
             localStorage.removeItem("token");
             window.location.href = "index.html";
         })

@@ -3,7 +3,7 @@ const submitBtn = document.getElementById("save-cv");
 
 function printResume() {
   //document represent respective resume template
-  console.log("print");
+  //("print");
   var printdocument = document.getElementById("resume").innerHTML;
   var originalDocument = document.body.innerHTML;
 
@@ -144,7 +144,7 @@ function addEducation() {
   /*cell = newrow.insertCell(-1);
     cell.innerHTML = removeButtonHTML('education-table');*/
   // -1 is for appending at last
-  //console.log('added education');
+  ////('added education');
 }
 
 function addSkills() {
@@ -159,7 +159,7 @@ function addSkills() {
   cell.setAttribute("spellcheck", "true");
   cell.setAttribute("onclick", "selectAll()");
   cell.innerHTML = newCellPlaceholder;
-  console.log("added Skill");
+  //("added Skill");
 
   document.getElementById("add-skill").classList.add("invisible");
   document.getElementById("remove-skill").classList.remove("invisible");
@@ -327,22 +327,22 @@ function saveResume() {
   var i, j;
   //Education
   tablerows = document.getElementById("education-table").tBodies[0].rows;
-  //console.log(tablerows.length);
+  ////(tablerows.length);
   var edu_tabledata = [];
   for (i = 0; i < tablerows.length; i++) {
     edu_tabledata[i] = [];
     var rowcells = tablerows[i].cells;
     for (j = 0; j < 4; j++) edu_tabledata[i][j] = rowcells[j].innerHTML;
-    //console.log(i);
+    ////(i);
   }
-  // console.log(edu_tabledata);
+  // //(edu_tabledata);
   //Skills
   tablerows = document.getElementById("skills-table").tBodies[0].rows;
   var skills_tabledata = [];
   for (i = 0; i < tablerows.length; i++) {
     skills_tabledata.push(tablerows[i].cells[1].innerHTML);
   }
-  //console.log(skills_tabledata);
+  ////(skills_tabledata);
   //Internships
   tablerows = document.getElementById("internships-table").tBodies[0].rows;
   var internships_tabledata = [];
@@ -351,7 +351,7 @@ function saveResume() {
     for (j = 0; j < 3; j++) {
       internships_tabledata[i][j] = tablerows[i].cells[j].innerHTML;
     }
-    //console.log(i);
+    ////(i);
   }
   //Projects
   tablerows = document.getElementById("projects-table").tBodies[0].rows;
@@ -388,7 +388,7 @@ function saveResume() {
     achievements: awards_list,
   };
 
-  console.log(resumeDetails);
+  //(resumeDetails);
   return resumeDetails;
 }
 
@@ -401,7 +401,7 @@ const loadResume = async function () {
   let isUserLoggedIn = false;
   let isFromGoogle = false;
   if (token) isUserLoggedIn = true;
-  // console.log(document.cookie);
+  // //(document.cookie);
   const myInit = {
     method: "GET",
     withCredentials: true,
@@ -422,7 +422,7 @@ const loadResume = async function () {
       throw Error("Could not fetch data for that resource");
     } else {
       const jsonRes = await res.json();
-      console.log({ jsonRes });
+      //({ jsonRes });
       resumesObj = jsonRes.data.user?.resumes;
       try {
         let flag = true;
@@ -435,21 +435,21 @@ const loadResume = async function () {
         if (flag) {
           myInit.method = "POST";
           myInit.body = JSON.stringify({ index: 1 });
-          console.log("here0");
+          //("here0");
 
           const res = await fetch("/api/resumeData", myInit);
-          console.log("here1");
+          //("here1");
 
           const jsonRes = await res.json();
-          console.log("here2");
+          //("here2");
           if (!jsonRes.success) throw Error("error");
-          console.log(jsonRes);
+          //(jsonRes);
           resumesObj.push({ index: 1, id: jsonRes.data.resumeId });
-          console.log(resumesObj);
+          //(resumesObj);
         }
-        console.log(jsonRes);
+        //(jsonRes);
       } catch (err) {
-        console.log(err);
+        //(err);
       }
 
       if (!jsonRes.data.user.username) {
@@ -465,9 +465,9 @@ const loadResume = async function () {
       }
     }
   } catch (err) {
-    console.log(err);
+    //(err);
   }
-  // console.log(document.cookie);
+  // //(document.cookie);
   //   if (!resumesObj) return;
   let resumeId;
   for (let i = 0; i < resumesObj.length; i++) {
@@ -481,7 +481,7 @@ const loadResume = async function () {
   fetch(`/api/resumeData/${resumeId}`, myInit)
     .then((res) => res.json())
     .then((jsonRes) => {
-      console.log(jsonRes);
+      //(jsonRes);
       const resumeData = jsonRes.data.resumeData;
 
       let tablerows, i, j;
@@ -509,7 +509,7 @@ const loadResume = async function () {
           //update rows
           for (j = 0; j < 4; j++)
             tablerows[i].cells[j].innerHTML = edu_tabledata[i][j];
-          //console.log(i);
+          ////(i);
         }
 
       }
@@ -607,7 +607,7 @@ submitBtn.addEventListener("click", async (e) => {
   let isUserLoggedIn = false;
   let isFromGoogle = false;
   if (token) isUserLoggedIn = true;
-  // console.log(document.cookie);
+  // //(document.cookie);
   const myInit = {
     method: "GET",
     withCredentials: true,
@@ -628,7 +628,7 @@ submitBtn.addEventListener("click", async (e) => {
       throw Error("Could not fetch data for that resource");
     } else {
       const jsonRes = await res.json();
-      console.log({ jsonRes });
+      //({ jsonRes });
       resumesObj = jsonRes.data.user.resumes;
       if (!jsonRes.data.user.username) {
         window.location.href = "login.html";
@@ -643,12 +643,12 @@ submitBtn.addEventListener("click", async (e) => {
       }
     }
   } catch (err) {
-    console.log(err);
+    //(err);
   }
 
   e.preventDefault();
   const resumeBody = saveResume();
-  console.log(resumesObj);
+  //(resumesObj);
   let resumeId;
   for (let i = 0; i < resumesObj.length; i++) {
     if (resumesObj[i].index == 1) {
@@ -664,7 +664,7 @@ submitBtn.addEventListener("click", async (e) => {
     fetch(`/api/resumeData/${resumeId}`, myInit)
       .then((res) => res.json())
       .then((jsonRes) => {
-        console.log(jsonRes);
+        //(jsonRes);
         const alertDiv = document.getElementById("alert-message");
           alertDiv.innerHTML = "";
           alertDiv.style.display = "flex";
@@ -687,7 +687,7 @@ submitBtn.addEventListener("click", async (e) => {
           alertDiv.append(newDiv);
       })
       .catch((err) => {
-        console.log(err);
+        //(err);
         const alertDiv1 = document.getElementById("alert-message-warn");
         alertDiv1.innerHTML = "";
         alertDiv1.style.display = "flex";

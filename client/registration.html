@@ -199,7 +199,7 @@
         securityAns: e.target.elements["securityAns"].value,
         gender: e.target.elements["gender"].value,
       };
-      console.log(formData);
+      //(formData);
       fetch("/api/register", {
         method: "POST", // or 'PUT',
         mode: "cors",
@@ -209,16 +209,16 @@
         body: JSON.stringify(formData),
       })
         .then((response) => {
-          console.log(response);
+          //(response);
           return response.json();
         })
         .then((jsonRes) => {
-          console.log(jsonRes);
+          //(jsonRes);
           if (!jsonRes.success) {
             throw jsonRes.error;
           }
-          // console.log('Success:', jsonRes);
-          // console.log("http://127.0.0.1:5500/" + jsonRes.redirect);
+          // //('Success:', jsonRes);
+          // //("http://127.0.0.1:5500/" + jsonRes.redirect);
           else {
             window.location.href = "login.html";
           }

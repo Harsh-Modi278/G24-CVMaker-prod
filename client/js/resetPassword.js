@@ -42,7 +42,7 @@ function fun() {
         return res.json();
       })
       .then(function (data) {
-        console.log(data);
+        //(data);
       });
 
     window.location.href = "#";

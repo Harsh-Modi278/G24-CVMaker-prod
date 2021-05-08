@@ -712,7 +712,7 @@
     let isUserLoggedIn = false;
     let isFromGoogle = false;
     if (token) isUserLoggedIn = true;
-    // console.log(document.cookie);
+    // //(document.cookie);
     const myInit = {
       method: "GET",
       withCredentials: true,
@@ -728,7 +728,7 @@
 
     fetch("/api/profile", myInit)
       .then((res) => {
-        // console.log(res);
+        // //(res);
         if (!res.ok) {
           throw Error("Could not fetch data for that resource");
         } else {
@@ -736,7 +736,7 @@
         }
       })
       .then((jsonRes) => {
-        console.log({ jsonRes });
+        //({ jsonRes });
         if (!jsonRes.data.user.username) {
           window.location.href = "login.html";
         } else {
@@ -751,7 +751,7 @@
         }
       })
       .catch((err) => {
-        console.log(err);
+        //(err);
         window.location.href = "login.html";
         
       });
@@ -769,7 +769,7 @@
           }
         })
         .then((jsonRes) => {
-          console.log({ jsonRes });
+          //({ jsonRes });
           localStorage.removeItem("token");
           window.location.href = "index.html";
         })

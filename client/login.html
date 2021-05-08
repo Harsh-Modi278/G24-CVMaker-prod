@@ -150,7 +150,7 @@
         username: e.target.elements["username"].value,
         password: e.target.elements["password"].value,
       };
-      console.log(formData);
+      //(formData);
       fetch("/api/login", {
         method: "POST", // or 'PUT',
         mode: "cors",
@@ -164,7 +164,7 @@
           else return response.json();
         })
         .then((jsonRes) => {
-          // console.log('Success:', jsonRes);
+          // //('Success:', jsonRes);
           localStorage.setItem("token", jsonRes.data.accessToken);
           window.location.href = "dashboard.html";
         })

@@ -33,7 +33,7 @@ b.addEventListener("click", (e)=> {
   })
 }).then(response => response.json())
 .then(jsonRes => {
-  console.log('Success:', jsonRes);
+  //('Success:', jsonRes);
   
   if(!jsonRes.success){
     throw Error("Invalid Username")
@@ -84,7 +84,7 @@ que_b.addEventListener("click", ()=> {
   })
 }).then(response => response.json())
 .then(jsonRes => {
-  console.log('Success:', jsonRes);
+  //('Success:', jsonRes);
   
   if(!jsonRes.success){
     throw Error("Invalid Answer")
@@ -145,7 +145,7 @@ function fun(e) {
     })
   }).then(response => response.json())
   .then(jsonRes => {
-    console.log('Success:', jsonRes);
+    //('Success:', jsonRes);
     
     if(!jsonRes.success){
       throw Error("Invalid Password")
