@@ -191,5 +191,5 @@ logoutButton.addEventListener("click", (e) => {
       localStorage.removeItem("token");
       window.location.href = "index.html";
     })
-    .catch((err) => //(err));
+    .catch((err) => console.log(err));
 });
