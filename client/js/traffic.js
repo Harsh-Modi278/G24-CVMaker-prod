@@ -19,7 +19,7 @@ let isFromGoogle = false;
 const profileButton = document.getElementById("MyProfile").children[0];
 fetch("/api/profile", myInit)
   .then((res) => {
-    // console.log(res);
+    // //(res);
     if (!res.ok) {
       throw Error("Could not fetch data for that resource");
     } else {
@@ -27,19 +27,19 @@ fetch("/api/profile", myInit)
     }
   })
   .then((jsonRes) => {
-    console.log(jsonRes);
+    //(jsonRes);
     if (!jsonRes.data.user.isAdmin) {
-      //console.log(jsonRes);
+      ////(jsonRes);
       window.location.href = "dashboard.html";
     }
-    // console.log(jsonRes.data.user.photoURL);
+    // //(jsonRes.data.user.photoURL);
     profileButton.src = jsonRes.data.user.photoURL;
 
     if (jsonRes.data.user.googleId) isFromGoogle = true;
   })
 
   .catch((err) => {
-    console.log(err);
+    //(err);
     window.location.href = "login.html";
   });
 
@@ -52,7 +52,7 @@ var cv_updated_today = 0;
 const url = "/api/traffic";
 fetch(url, myInit)
   .then((res) => {
-    // console.log(res);
+    // //(res);
     if (!res.ok) {
       throw Error("Could not fetch data for that resource");
     } else {
@@ -60,7 +60,7 @@ fetch(url, myInit)
     }
   })
   .then((jsonRes) => {
-    console.log(jsonRes);
+    //(jsonRes);
     var pickrate = jsonRes.data.templatePickRate;
     var pickrateArray = Object.values(pickrate);
 
@@ -105,7 +105,7 @@ fetch(url, myInit)
     var user_date_wise_array = jsonRes.data.userDateVise;
     var daily_dates = Object.keys(user_date_wise_array);
     var daily_users = Object.values(user_date_wise_array);
-    // console.log(daily_users);
+    // //(daily_users);
 
     var myChart1 = new Chart(ctx1, {
       type: "line",
@@ -144,7 +144,7 @@ fetch(url, myInit)
 
     const counters = document.querySelectorAll(".counter");
     const speed = 100; // The lower the slower
-    //  console.log(counters[1]);
+    //  //(counters[1]);
 
     const updateCount = () => {
       const target = +jsonRes.data.totalUsers;
@@ -153,8 +153,8 @@ fetch(url, myInit)
       // Lower inc to slow and higher to slow
       const inc = target / speed;
 
-      // console.log(inc);
-      // console.log(count);
+      // //(inc);
+      // //(count);
 
       // Check if target is reached
       if (count < target) {
@@ -169,17 +169,17 @@ fetch(url, myInit)
 
     updateCount();
 
-    //  console.log(jsonRes.data.cvsUpdatedToday);
+    //  //(jsonRes.data.cvsUpdatedToday);
     const updateCount2 = () => {
       const target = +jsonRes.data.cvsUpdatedToday;
-      // console.log(target);
+      // //(target);
       const count = +counters[0].innerText;
 
       // Lower inc to slow and higher to slow
       const inc = target / speed;
 
-      //console.log(inc);
-      // console.log(count);
+      ////(inc);
+      // //(count);
 
       // Check if target is reached
       if (count < target) {
@@ -197,7 +197,7 @@ fetch(url, myInit)
     // users = jsonRes;
   })
   .catch((err) => {
-    console.log({ err });
+    //({ err });
   });
 
 const logoutButton = document.getElementById("logout-button");
@@ -213,7 +213,7 @@ logoutButton.addEventListener("click", (e) => {
       }
     })
     .then((jsonRes) => {
-      console.log({ jsonRes });
+      //({ jsonRes });
       localStorage.removeItem("token");
       window.location.href = "index.html";
     })

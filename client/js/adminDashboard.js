@@ -19,7 +19,7 @@ let isFromGoogle = false;
 const profileButton = document.getElementById("MyProfile").children[0];
 fetch("/api/profile", myInit)
   .then((res) => {
-    // console.log(res);
+    // //(res);
     if (!res.ok) {
       throw Error("Could not fetch data for that resource");
     } else {
@@ -30,7 +30,7 @@ fetch("/api/profile", myInit)
     if (!jsonRes.data.user.isAdmin) {
       window.location.href = "dashboard.html";
     }
-    console.log(jsonRes.data.user.photoURL);
+    //(jsonRes.data.user.photoURL);
     profileButton.src = jsonRes.data.user.photoURL;
 
     if (jsonRes.data.user.googleId) isFromGoogle = true;
@@ -47,7 +47,7 @@ const conf_delete = document.getElementById("delete-popup");
 const url = "/api/users";
 fetch(url, myInit)
   .then((res) => {
-    // console.log(res);
+    // //(res);
     if (!res.ok) {
       throw Error("Could not fetch data for that resource");
     } else {
@@ -55,11 +55,11 @@ fetch(url, myInit)
     }
   })
   .then((jsonRes) => {
-    console.log(jsonRes);
+    //(jsonRes);
     users = jsonRes;
   })
   .catch((err) => {
-    console.log({ err });
+    //({ err });
   });
 
 //body.onload=() => {displayFeed(users)};
@@ -72,7 +72,7 @@ searchbar.addEventListener("keyup", (e) => {
   } else {
     checker = true;
   }
-  console.log(Array.from(users));
+  //(Array.from(users));
   const filteredNames = Array.from(users).filter((names) => {
     if (htmlcharacters !== "") {
       return names.username.includes(htmlcharacters);
@@ -141,7 +141,7 @@ const displayFeed = (names) => {
         myInit.method = "DELETE";
         fetch(`/api/users/${i.username}`, myInit)
           .then((res) => {
-            // console.log(res);
+            // //(res);
             if (!res.ok) {
               throw Error("Could not fetch data for that resource");
             } else {
@@ -149,10 +149,10 @@ const displayFeed = (names) => {
             }
           })
           .then((jsonRes) => {
-            console.log(jsonRes);
+            //(jsonRes);
           })
           .catch((err) => {
-            console.log({ err });
+            //({ err });
           });
       };
 
@@ -187,7 +187,7 @@ logoutButton.addEventListener("click", (e) => {
       }
     })
     .then((jsonRes) => {
-      console.log({ jsonRes });
+      //({ jsonRes });
       localStorage.removeItem("token");
       window.location.href = "index.html";
     })

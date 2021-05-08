@@ -163,7 +163,7 @@
           else return response.json();
         })
         .then((jsonRes) => {
-          // console.log('Success:', jsonRes);
+          // //('Success:', jsonRes);
           localStorage.setItem("token", jsonRes.data.accessToken);
           window.location.href = "dashboard.html";
         })

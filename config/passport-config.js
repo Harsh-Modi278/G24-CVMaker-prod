@@ -83,15 +83,15 @@ function passportInit(passport) {
       oauthStrategyOptions,
       (request, accessToken, refreshToken, profile, done) => {
         // passport callback function
-        // console.log(profile);
+        // //(profile);
 
         // check if the user already exists in out db
         User.findOne({ googleId: profile.id })
           .then((result) => {
-            // console.log(result);
+            // //(result);
             if (result) {
               // user already exists
-              // console.log("here:", result);
+              // //("here:", result);
             } else {
               //   create a new user from the 'profile' info
               const newUserInstance = new User({
@@ -103,7 +103,7 @@ function passportInit(passport) {
               newUserInstance
                 .save()
                 .then((result) => {
-                  // console.log("new user created:", result);
+                  // //("new user created:", result);
                 })
                 .catch((err) => console.error(err));
             }
