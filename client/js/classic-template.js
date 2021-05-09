@@ -595,7 +595,7 @@ const loadResume = async function () {
           resumeData["achievements"];
       }
     })
-    .catch((err) => //(err));
+    .catch((err) => console.log(err));
 };
 
 submitBtn.addEventListener("click", async (e) => {
@@ -643,7 +643,7 @@ submitBtn.addEventListener("click", async (e) => {
       }
     }
   } catch (err) {
-    //(err);
+    console.log(err);
   }
 
   e.preventDefault();
